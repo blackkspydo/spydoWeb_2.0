@@ -12,7 +12,7 @@
 			top-8 
 			left-[5%] 
 			flex 
-			max-w-[calc(100%_-_600px)]	
+			max-w-[calc(100%_-_650px)]	
 			flex-row 
 			items-center 
 			justify-between 
@@ -23,31 +23,18 @@
 			md:px-3
 			md:py-0
 			lg:min-w-[600px]
-			
-
-
-
-
+			md:mx-auto
+			md:my-0
+			md:left-0
 "
 >
-	<a href="/" class="relative z-10 text-black  dark:text-white ">
-		<h2 class="text-2xl font-bold">Blackk Spydo</h2></a
+	<a
+		href="/"
+		class="relative z-10 text-black  hover:text-black  hover:no-underline dark:text-white hover:dark:text-white"
+	>
+		<h2 class="text-2xl font-bold ">Blackk Spydo</h2></a
 	>
 	<Navigation />
 	<MobNavigation />
 </header>
 
-<style type="scss">
-	@media (max-width: 552px) {
-		.flex-container {
-			top: 20px;
-			margin: 0 auto;
-			left: 0;
-		}
-	}
-	@media (min-width: 552px) {
-		.flex-container {
-			// max-width: min(1000px, calc(100% - 700px));
-		}
-	}
-</style>

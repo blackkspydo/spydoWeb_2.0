@@ -41,8 +41,7 @@
 	ml-auto 
 	flex 
 	items-center 
-	justify-between
-	
+	justify-between	
 	"
 >
 	<Cards />

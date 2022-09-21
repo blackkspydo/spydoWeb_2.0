@@ -62,10 +62,11 @@ export async function listContent() {
 	/** @type {import('./types').ContentItem[]} */
 	let _allBlogposts = [];
 	let next = null;
-	let limit = 0; // just a failsafe against infinite loop - feel free to remove
+	let limit = 2; // just a failsafe against infinite loop - feel free to remove
 	const authheader = process.env.GH_TOKEN && {
 		Authorization: `token ${process.env.GH_TOKEN}`
 	};
+	console.log('authheader', authheader);
 	let url =
 		`https://api.github.com/repos/${GH_USER_REPO}/issues?` +
 		new URLSearchParams({

@@ -62,7 +62,7 @@
 	<div class="introImage">
 		<img src={profile} alt="profile" />
 	</div>
-	<div class="ringCircle inner-planets">
+	<div class="ringCircle inner-planets border-black/[.5] border-[1px] border-opacity-50 dark:border-white/[.5] ">
 		{#each inner as planet}
 			<div class="planetCircle">
 				<img src={planet.planet} alt="" />
@@ -70,7 +70,13 @@
 			</div>
 		{/each}
 	</div>
-	<div class="ringCircle outer-planets">
+	<div
+		class="ringCircle outer-planets
+		border-opacity-50
+		border-[1px]
+		border-black/[.5]
+		dark:border-white/[.5]"
+	>
 		{#each outer as planet}
 			<div class="planetCircle">
 				<img src={planet.planet} alt="" />
@@ -122,8 +128,8 @@
 			width: 500px;
 			height: 500px;
 			transform-origin: center;
-			border: 2px solid rgba(19, 20, 33, 0.5);
 			border-radius: 50%;
+			pointer-events: none;
 		}
 		.inner-planets {
 			transform: scale(1.3);

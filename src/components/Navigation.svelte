@@ -30,19 +30,20 @@
 					text-black
 					no-underline
 					after:absolute
-					after:bottom-0
+					after:bottom-[-3px]
 					after:left-0
 					after:h-1
 					after:w-0
 					after:origin-left
 					after:bg-black
-					after:duration-300
+					after:duration-500
 					after:ease-in-out	
 					after:rounded
 					hover:no-underline
 					hover:after:w-full
 					hover:after:bg-black
-					hover:after:duration-300
+					dark:hover:after:bg-white
+					hover:after:duration-500
 					hover:text-black
 					dark:text-white
 					dark:hover:text-white
