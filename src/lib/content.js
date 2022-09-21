@@ -215,7 +215,37 @@ function parseIssue(issue) {
 	} else {
 		slug = slugify(title);
 	}
-	let description = data.description ?? content.trim().split('\n')[0];
+	const img_reg = /!\[.*?\]\((.*?)\)/;
+	const img_tag_reg = /<img.*?src="(.*?)".*?>/;
+	const printable_reg = /[\x20-\x7E]/g;
+	const mar_reg = /(\*|_)(.*?)\1/g;
+	
+	const trunched_para = content
+		.trim()
+		.split('\n')
+		.filter(
+			(para) =>
+				!(
+					img_reg.test(para) ||
+					img_tag_reg.test(para) ||
+					para.includes('figcaption') ||
+					!printable_reg.test(para) ||
+					para.startsWith('#')
+				)
+		);
+
+	let description =
+		data.description ??
+		trunched_para.reduce((acc, para) => {
+			if (acc.length < 200) {
+				acc += para.replace(mar_reg, '$2') + ' ';
+			} else if (acc.length > 200) {
+				acc = acc.slice(0, 200);
+			}
+			return acc;
+		}, '') + '...';
+	console.log(description);
+
 	// you may wish to use a truncation approach like this instead...
 	// let description = (data.content.length > 300) ? data.content.slice(0, 300) + '...' : data.content
 
@@ -249,4 +279,3 @@ function parseIssue(issue) {
 		}
 	};
 }
-

@@ -58,7 +58,7 @@
 		class=" sm:mx-0 sm:w-full my-2 flex h-1 w-[100%] bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500"
 	/>
 
-	<div class="prose mt-16 mb-32 w-full max-w-full dark:prose-invert">
+	<div class="prose mt-16 mb-32 w-full max-w-full text-lg dark:prose-invert">
 		{@html json.content}
 	</div>
 </article>

@@ -68,14 +68,18 @@
 
 <svelte:window on:keyup={focusSearch} />
 
-<section class="mx-auto mt-20 mb-16 flex max-w-4xl flex-col items-start justify-center px-4 sm:px-8">
+<section
+	class="sm:px-8 mx-auto mt-20 mb-16 flex max-w-4xl flex-col items-start justify-center px-4"
+>
 	<h1 class="mb-4 text-3xl font-bold tracking-tight text-black dark:text-white md:text-5xl">
-		Blog
+		## Spydo Writes
 	</h1>
-	<p class="mb-4 text-gray-600 dark:text-gray-400">
-		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum sunt reprehenderit alias rerum
-		dolor impedit. In total, I've written {items.length} articles on my blog. Use the search below to
-		filter by title. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellat eaque voluptates assumenda delectus cum placeat, molestias vel sunt expedita blanditiis eos debitis deserunt. Maiores non beatae laborum molestias voluptatibus assumenda aspernatur, delectus ad ratione debitis sequi suscipit accusamus ullam magnam porro temporibus amet? Illum illo quia autem quam sapiente. Aspernatur debitis ea ex nam itaque? Eius maxime earum nihil quos!
+	<p class="mb-4 text-lg text-gray-600 dark:text-gray-400">
+		Hello there, I'm <a href="/"><strong>Kishor U</strong></a>. I'm a software engineer
+		<a href="https://grambell.com">@Grambell </a>
+		and an computer software undergrad. I write about software development, tech, and other things that interest
+		me. In total, I've written {items.length} articles on my blog. Use the search below to filter by
+		title.
 	</p>
 	<div class="relative mb-4 w-full">
 		<input
@@ -101,7 +105,7 @@
 	</div>
 	<div class="mb-12 mt-2 flex items-center ">
 		<div class="mr-2 text-gray-900 dark:text-gray-400">Filter:</div>
-		<div class="grid grid-cols-3 rounded-md shadow-sm sm:grid-cols-6">
+		<div class="sm:grid-cols-6 grid grid-cols-3 rounded-md shadow-sm">
 			{#each POST_CATEGORIES as availableCategory}
 				<div>
 					<input
@@ -122,24 +126,9 @@
 		</div>
 	</div>
 
-	{#if !search}
-		<h3 class="mt-8 mb-4 text-2xl font-bold tracking-tight text-black dark:text-white md:text-4xl">
-			Most Popular
-		</h3>
-		<IndexCard href="/foo" title="Hardcoded Blogpost # 1" stringData="106,255 views">
-			Just a hardcorded blogpost or you can use the metadata up to you
-		</IndexCard>
-		<IndexCard href="/welcome" title="Welcome to Swyxkit" stringData="106,255 views">
-			Just a hardcorded blogpost or you can use the metadata up to you
-		</IndexCard>
-		<IndexCard href="/moo" title="Hardcoded Blogpost # 3" stringData="106,255 views">
-			Just a hardcorded blogpost or you can use the metadata up to you
-		</IndexCard>
-
-		<h3 class="mt-8 mb-4 text-2xl font-bold tracking-tight text-black dark:text-white md:text-4xl">
-			All Posts
-		</h3>
-	{/if}
+	<h3 class="mt-8 mb-4 text-2xl font-bold tracking-tight text-black dark:text-white md:text-4xl">
+		### All Posts
+	</h3>
 
 	{#if list.length}
 		<ul class="">
