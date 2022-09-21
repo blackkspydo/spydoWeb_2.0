@@ -2,6 +2,8 @@
 	import '../../tailwind.css';
 	import Header from '../../../src/components/Header.svelte';
 	import Footer from '../../../src/components/Footer.svelte';
+	import Nav from '../../../src/components/Nav.svelte';
+
 	import { MY_TWITTER_HANDLE, MY_YOUTUBE, REPO_URL, SITE_TITLE } from '$lib/siteConfig';
 </script>
 
@@ -14,7 +16,8 @@
 	/>
 </svelte:head>
 
-<Header />
+<!-- <Header /> -->
+<Nav />
 <main class="
 	mt-14
 ">

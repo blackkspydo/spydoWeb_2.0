@@ -1,7 +1,7 @@
 <script>
-	import MobileMenu from './MobileMenu.svelte';
 	import { REPO_URL } from '$lib/siteConfig';
-	import NavLink from './NavLink.svelte';
+	import Navigation from '../components/Navigation.svelte';
+	import MobileNavigation from '../components/MobileNavigation.svelte';
 	let isDark = false;
 	if (typeof localStorage !== 'undefined') {
 		if (
@@ -25,23 +25,11 @@
 </script>
 
 <nav
-	class="relative mx-auto flex w-full max-w-2xl items-center justify-between border-gray-200
+	class="relative mx-auto flex w-full max-w-3xl items-center justify-between border-gray-200
 	bg-gray-50 bg-opacity-60 py-8 text-gray-900 dark:border-gray-700 dark:bg-gray-900
-	dark:text-gray-100 sm:pb-16"
+	dark:text-gray-100 sm:pb-16 px-3"
 >
-	<a href="#skip" class="skip-nav">Skip to content</a>
-	<MobileMenu />
-	<ul class="ml-[-0.60rem] flex">
-		<li>
-			<NavLink href="/">Home</NavLink>
-		</li>
-		<li>
-			<NavLink href="/blog">Blog</NavLink>
-		</li>
-		<li>
-			<NavLink href="/about">About</NavLink>
-		</li>
-	</ul>
+	<Navigation />
 	<div class="flex items-center space-x-4">
 		<!-- RSS -->
 		<!-- <a
@@ -129,6 +117,8 @@
 			{/if}
 		</button>
 	</div>
+	<MobileNavigation />
+
 </nav>
 
 <style>

@@ -19,5 +19,4 @@ export async function load({ params, fetch, setHeaders }) {
 	// } catch (err) {
 	// 	console.error('error fetching blog post at [slug].svelte: ' + slug, res, err);
 	// 	throw error(500, 'error fetching blog post at [slug].svelte: ' + slug + ': ' + res);
-	// }
 }
