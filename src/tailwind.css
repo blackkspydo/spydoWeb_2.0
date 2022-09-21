@@ -58,6 +58,11 @@ a {
 	@apply text-yellow-600 hover:text-yellow-700 hover:underline dark:text-yellow-400 dark:hover:text-yellow-200;
 }
 
+.prose {
+	max-width: 100%;
+}
+
+
 .prose h1 a,
 h2 a,
 h3 a,

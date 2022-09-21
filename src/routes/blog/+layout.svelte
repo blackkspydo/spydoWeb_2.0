@@ -15,7 +15,9 @@
 </svelte:head>
 
 <Header />
-<main>
+<main class="
+	mt-14
+">
 	<slot />
 </main>
 <Footer />

@@ -64,9 +64,9 @@ export async function listContent() {
 	let next = null;
 	let limit = 2; // just a failsafe against infinite loop - feel free to remove
 	const authheader = process.env.GH_TOKEN && {
-		Authorization: `token ${process.env.GH_TOKEN}`
+		Authorization: `Bearer ${process.env.GH_TOKEN}`
 	};
-	console.log('authheader', authheader);
+		
 	let url =
 		`https://api.github.com/repos/${GH_USER_REPO}/issues?` +
 		new URLSearchParams({
@@ -78,6 +78,7 @@ export async function listContent() {
 	if (APPROVED_POSTERS_GH_USERNAME.length === 1 && APPROVED_POSTERS_GH_USERNAME[0] === REPO_OWNER) {
 		url += '&' + new URLSearchParams({ creator: REPO_OWNER });
 	}
+	console.log('url', url);
 	do {
 		const res = await fetch(next?.url ?? url, {
 			headers: authheader

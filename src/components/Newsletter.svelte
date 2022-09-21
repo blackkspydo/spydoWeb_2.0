@@ -10,7 +10,7 @@
 	}
 </script>
 
-<section class="mb-16 w-full" id="newsletter">
+<section class="mb-16 w-full max-w-xl my-0 mx-auto" id="newsletter">
 	<div
 		class="my-4 w-full border-y border-blue-200 bg-blue-50 p-6 dark:border-gray-600 dark:bg-gray-800 sm:rounded sm:border-x"
 	>

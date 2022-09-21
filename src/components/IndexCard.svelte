@@ -12,7 +12,7 @@
 
 <a
 	class="w-full text-gray-900 hover:text-yellow-600 dark:text-gray-100 dark:hover:text-yellow-100"
-	{href}
+	href={`blog/${href}`}
 	><div class="mb-8 w-full">
 		<div class="flex flex-col justify-between md:flex-row">
 			<h4 class="mb-2 w-full flex-auto text-lg font-medium md:text-xl">
