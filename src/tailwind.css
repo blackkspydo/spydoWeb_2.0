@@ -46,12 +46,12 @@
 		display: inline;
 	}
 
-	img {
-		/* https://ishadeed.com/article/defensive-css */
+	/* https://ishadeed.com/article/defensive-css */
+	/* img {
 		max-width: 100%;
 		object-fit: cover;
 		background-color: grey;
-	}
+	} */
 }
 /* bg-yellow-200 dark:hover:bg-yellow-800 */
 a {

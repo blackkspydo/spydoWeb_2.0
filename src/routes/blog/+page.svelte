@@ -68,14 +68,14 @@
 
 <svelte:window on:keyup={focusSearch} />
 
-<section class="mx-auto mb-16 flex max-w-2xl flex-col items-start justify-center px-4 sm:px-8">
+<section class="mx-auto mt-20 mb-16 flex max-w-4xl flex-col items-start justify-center px-4 sm:px-8">
 	<h1 class="mb-4 text-3xl font-bold tracking-tight text-black dark:text-white md:text-5xl">
 		Blog
 	</h1>
 	<p class="mb-4 text-gray-600 dark:text-gray-400">
 		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum sunt reprehenderit alias rerum
 		dolor impedit. In total, I've written {items.length} articles on my blog. Use the search below to
-		filter by title.
+		filter by title. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellat eaque voluptates assumenda delectus cum placeat, molestias vel sunt expedita blanditiis eos debitis deserunt. Maiores non beatae laborum molestias voluptatibus assumenda aspernatur, delectus ad ratione debitis sequi suscipit accusamus ullam magnam porro temporibus amet? Illum illo quia autem quam sapiente. Aspernatur debitis ea ex nam itaque? Eius maxime earum nihil quos!
 	</p>
 	<div class="relative mb-4 w-full">
 		<input

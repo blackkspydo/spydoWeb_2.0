@@ -6,6 +6,15 @@ module.exports = {
 	],
 	darkMode: 'class',
 	theme: {
+		screens: {
+			'max-w-screen-2xl': '1700px',
+			md: {
+				max: '600px'
+			},
+			lg: {
+				min: '600px'
+			}
+		},
 		extend: {
 			typography: (theme) => ({
 				DEFAULT: {

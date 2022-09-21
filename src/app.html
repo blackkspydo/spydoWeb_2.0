@@ -12,20 +12,43 @@
 		<meta name="theme-color" content="#facc15" media="(prefers-color-scheme: light)" />
 		<meta name="theme-color" content="#3730a3" media="(prefers-color-scheme: dark)" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&family=Roboto+Mono:wght@200;300&display=swap"
+			rel="stylesheet"
+		/>
 		<script nonce="swyx">
 			// On page load or when changing themes, best to add inline in `head` to avoid FOUC
-			if (
-				localStorage.theme === 'dark' ||
-				(!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
-			) {
-				document.documentElement.classList.add('dark');
-			} else {
-				document.documentElement.classList.remove('dark');
-			}
+			// if (
+			// 	localStorage.theme === 'dark' ||
+			// 	(!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
+			// ) {
+			// 	document.documentElement.classList.add('dark');
+			// } else {
+			// 	document.documentElement.classList.remove('dark');
+			// }
 		</script>
 		%sveltekit.head%
 	</head>
-	<body class="vsc-initialized bg-white text-white dark:bg-gray-900 dark:text-black" data-sveltekit-prefetch>
+	<body
+		class="vsc-initialized bg-white text-white dark:bg-gray-900 dark:text-black"
+		data-sveltekit-prefetch
+	>
 		<div id="svelte">%sveltekit.body%</div>
 	</body>
+
+	<style>
+		body {
+			font-family: 'Poppins', sans-serif !important;
+			margin: 0;
+			padding: 0;
+			-webkit-font-smoothing: antialiased;
+			width: 100%;
+			overflow-x: clip;
+		}
+		* {
+			box-sizing: border-box!important;
+		}
+	</style>
 </html>

@@ -39,8 +39,13 @@ const config = {
 	preprocess: [
 		mdsvex(mdsvexConfig),
 		preprocess({
-			postcss: true
-		})
+			postcss: true,
+			scss: {
+				includePaths: ['./src/styles'],
+				outputStyle: 'compressed'
+			}
+		}),
+		
 	],
 
 	kit: {

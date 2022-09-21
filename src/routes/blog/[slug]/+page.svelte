@@ -1,10 +1,10 @@
 <script>
 	import { MY_TWITTER_HANDLE, SITE_URL } from '$lib/siteConfig';
-	import Comments from '../../components/Comments.svelte';
+	import Comments from '../../../components/Comments.svelte';
 
 	import 'prism-themes/themes/prism-shades-of-purple.min.css';
-	import Newsletter from '../../components/Newsletter.svelte';
-	import Reactions from '../../components/Reactions.svelte';
+	import Newsletter from '../../../components/Newsletter.svelte';
+	import Reactions from '../../../components/Reactions.svelte';
 	import { page } from '$app/stores';
 
 	/** @type {import('./$types').PageData} */
@@ -37,7 +37,7 @@
 </svelte:head>
 
 <article
-	class="mx-auto mb-16 flex w-full max-w-2xl flex-col items-start justify-center px-4 sm:px-8"
+	class="mx-auto mb-16 flex w-full max-w-3xl flex-col items-start justify-center px-4 sm:px-8"
 >
 	<h1 class="mb-8 text-3xl font-bold tracking-tight text-black dark:text-white md:text-5xl ">
 		{json.title}
