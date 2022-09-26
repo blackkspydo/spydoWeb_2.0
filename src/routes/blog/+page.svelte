@@ -103,11 +103,11 @@
 			/></svg
 		>
 	</div>
-	<div class="mb-12 mt-2 flex items-center ">
+	<div class="mb-12 mt-2 flex items-start ">
 		<div class="mr-2 text-gray-900 dark:text-gray-400">Filter:</div>
-		<div class="sm:grid-cols-6 grid grid-cols-5 rounded-md shadow-sm">
+		<div class="flex flex-wrap rounded-md shadow-sm">
 			{#each POST_CATEGORIES as availableCategory}
-				<div>
+				<div class="w-[125px]">
 					<input
 						id="category-{availableCategory}"
 						class="peer sr-only"
