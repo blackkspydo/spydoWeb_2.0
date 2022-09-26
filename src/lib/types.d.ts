@@ -15,6 +15,7 @@ export type ContentItem = {
 	date: Date;
 	readingTime: string;
 	ghMetadata: GHMetadata;
+	views?: number;
 };
 
 export type GHMetadata = {

@@ -25,9 +25,9 @@
 </script>
 
 <nav
-	class="relative mx-auto flex w-full max-w-3xl items-center justify-between border-gray-200
-	bg-gray-50 bg-opacity-60 py-8 text-gray-900 dark:border-gray-700 dark:bg-gray-900
-	dark:text-gray-100 sm:pb-16 px-3"
+	class="sm:pb-16 relative mx-auto flex w-full max-w-3xl items-center justify-between
+	border-gray-200 bg-gray-50 bg-opacity-60 py-8 px-3 text-gray-900
+	dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100"
 >
 	<Navigation />
 	<div class="flex items-center space-x-4">
@@ -118,18 +118,4 @@
 		</button>
 	</div>
 	<MobileNavigation />
-
 </nav>
-
-<style>
-	.skip-nav {
-		position: absolute;
-		left: -25%;
-		top: -2rem;
-		--tw-translate-y: -3rem;
-		padding: 0.75rem 1rem;
-		transition-property: transform;
-		transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-		transition-duration: 0.2s;
-	}
-</style>

@@ -12,6 +12,8 @@ import parse from 'parse-link-header';
 import rehypeStringify from 'rehype-stringify';
 import rehypeSlug from 'rehype-slug';
 import rehypeAutoLink from 'rehype-autolink-headings';
+import { getDocs, query } from 'firebase/firestore';
+import { views_register } from '../Firebase';
 
 const remarkPlugins = undefined;
 const rehypePlugins = [
@@ -52,8 +54,19 @@ function slugify(text) {
  */
 function readingTime(text) {
 	let minutes = Math.ceil(text.trim().split(' ').length / 225);
-	return minutes > 1 ? `${minutes} minutes` : `${minutes} minute`;
+	return minutes > 1 ? `${minutes} min read` : `${minutes} min read`;
 }
+
+const getAllviews = async () => {
+	const data: { slug: string; views: number }[] = [];
+	const q = query(views_register);
+	const querySnapshot = await getDocs(q);
+	querySnapshot.forEach((doc) => {
+		const d = doc.data() as { slug: string; views: number };
+		data.push(d);
+	});
+	return data;
+};
 
 export async function listContent() {
 	// use a diff var so as to not have race conditions while fetching
@@ -61,6 +74,7 @@ export async function listContent() {
 
 	/** @type {import('./types').ContentItem[]} */
 	let _allBlogposts = [];
+	let allViews = await getAllviews();
 	let next = null;
 	let limit = 2; // just a failsafe against infinite loop - feel free to remove
 	const authheader = process.env.GH_TOKEN && {
@@ -84,7 +98,7 @@ export async function listContent() {
 		});
 
 		const issues = await res.json();
-		if ('message' in issues && res.status > 400)
+		if (issues && res.status > 400)
 			throw new Error(res.status + ' ' + res.statusText + '\n' + (issues && issues.message));
 		issues.forEach(
 			/** @param {import('./types').GithubIssue} issue */
@@ -103,7 +117,13 @@ export async function listContent() {
 	} while (next && limit++ < 1000); // just a failsafe against infinite loop - feel free to remove
 	_allBlogposts.sort((a, b) => b.date.valueOf() - a.date.valueOf()); // use valueOf to make TS happy https://stackoverflow.com/a/60688789/1106414
 	allBlogposts = _allBlogposts;
-	return _allBlogposts;
+	return _allBlogposts.map((post)=>{
+		const views = allViews.find((v) => v.slug === post.slug);
+		return {
+			...post,
+			views: views?.views ?? 0
+		};
+	});
 }
 
 export async function getContent(slug) {
@@ -219,7 +239,7 @@ function parseIssue(issue) {
 	const img_tag_reg = /<img.*?src="(.*?)".*?>/;
 	const printable_reg = /[\x20-\x7E]/g;
 	const mar_reg = /(\*|_)(.*?)\1/g;
-	
+
 	const trunched_para = content
 		.trim()
 		.split('\n')
@@ -244,7 +264,6 @@ function parseIssue(issue) {
 			}
 			return acc;
 		}, '') + '...';
-	console.log(description);
 
 	// you may wish to use a truncation approach like this instead...
 	// let description = (data.content.length > 300) ? data.content.slice(0, 300) + '...' : data.content
@@ -253,7 +272,7 @@ function parseIssue(issue) {
 	let tags = [];
 	if (data.tags) tags = Array.isArray(data.tags) ? data.tags : [data.tags];
 	tags = tags.map((tag) => tag.toLowerCase());
-	// console.log(slug, tags);
+	// console.log(slug, tags);if
 
 	return {
 		type: 'blog', // futureproof in case you want to add other types of content

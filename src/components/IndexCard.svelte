@@ -8,6 +8,7 @@
 	export let title = 'Untitled post';
 	/** @type {string} */
 	export let stringData = 'no date';
+	export let views = 0;
 </script>
 
 <a
@@ -28,6 +29,11 @@
 			<p>{stringData}</p>
 			{#if item?.readingTime}
 				<p>{item?.readingTime}</p>
+			{/if}
+			{#if item.views}
+				<p class="flex align-middle">
+					{item.views} {item.views === 1 ? 'view' : 'views'}
+				</p>
 			{/if}
 			{#if ghMetadata && ghMetadata.reactions.total_count}
 				<p class="">{ghMetadata.reactions.total_count} ♥</p>

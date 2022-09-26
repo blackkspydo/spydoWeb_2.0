@@ -1,4 +1,5 @@
 import type { data } from './data.d';
+
 export const social: data[] = [
 	{
 		name: 'Github',
@@ -34,6 +35,11 @@ export const social: data[] = [
 		name: 'Email',
 		value: 'work@blackkspydo.com',
 		url: 'mailto:work@blackkspydo.com'
+	},
+	{
+		name: 'Medium',
+		value: 'medium.com/@blackkspydo',
+		url: 'https://medium.com/@blackkspydo'
 	}
 ];
 

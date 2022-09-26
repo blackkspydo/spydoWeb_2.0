@@ -1,7 +1,6 @@
 <script>
 	import '../tailwind.css';
-	import Newsletter from '../components/Newsletter.svelte';
-	import FeatureCard from '../components/FeatureCard.svelte';
+	import Analytics from '../lib/Analytics.svelte';
 	import {
 		SITE_URL,
 		REPO_URL,
@@ -22,7 +21,6 @@
 	<link rel="canonical" href={SITE_URL} />
 	<link rel="alternate" type="application/rss+xml" href={SITE_URL + '/rss.xml'} />
 	<meta property="og:url" content={SITE_URL} />
-	<meta property="og:type" content="article" />
 	<meta property="og:title" content={SITE_TITLE} />
 	<meta name="Description" content={SITE_DESCRIPTION} />
 	<meta property="og:description" content={SITE_DESCRIPTION} />
@@ -33,7 +31,7 @@
 	<meta name="twitter:description" content={SITE_DESCRIPTION} />
 	<meta name="twitter:image" content={DEFAULT_OG_IMAGE} />
 </svelte:head>
-
+<Analytics />
 <Header />
 <main
 	class="max-w-screen-2xl 

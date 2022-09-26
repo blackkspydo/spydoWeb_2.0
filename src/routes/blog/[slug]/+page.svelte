@@ -1,24 +1,72 @@
 <script>
 	import { MY_TWITTER_HANDLE, SITE_URL } from '$lib/siteConfig';
 	import Comments from '../../../components/Comments.svelte';
-
 	import 'prism-themes/themes/prism-shades-of-purple.min.css';
 	import Newsletter from '../../../components/Newsletter.svelte';
 	import Reactions from '../../../components/Reactions.svelte';
-	import { page } from '$app/stores';
+	import { views_register, db } from '../../../Firebase';
+	import { doc, getDoc, getDocs, setDoc, query, where } from 'firebase/firestore';
+	import { page } from '$app/stores'
+	import { onMount } from 'svelte';
 
 	/** @type {import('./$types').PageData} */
 	export let data;
 
 	/** @type {import('$lib/types').ContentItem} */
-	$: json = data.json; // warning: if you try to destructure content here, make sure to make it reactive, or your page content will not update when your user navigates
+	$: json = data.json;
+	$: comments = [];
 
 	$: canonical = SITE_URL + $page.url.pathname;
+	$: views = 0;
+
+	const setViews = async () => {
+		const docRef = doc(db, 'views_register', $page.params.slug);
+		const docSnap = await getDoc(docRef);
+		if (docSnap.exists()) {
+			await setDoc(docRef, {
+				slug: $page.params.slug,
+				views: docSnap.data().views + 1
+			});
+			views = docSnap.data().views + 1;
+		} else {
+			await setDoc(docRef, {
+				slug: $page.params.slug,
+				views: 1
+			});
+		}
+	};
+
+	const getViews = async () => {
+		const docRef = doc(db, 'views_register', $page.params.slug);
+		const docSnap = await getDoc(docRef);
+		if (docSnap.exists()) {
+			views = docSnap.data().views;
+		} else {
+			views = 1;
+		}
+	};
+
+	if (typeof window !== 'undefined') {
+		const BLOGS = localStorage.getItem('BLOGS') ? JSON.parse(localStorage.getItem('BLOGS')) : [];
+		if (!BLOGS.includes($page.params.slug)) {
+			BLOGS.push($page.params.slug);
+			localStorage.setItem('BLOGS', JSON.stringify(BLOGS));
+			setViews();
+		} else {
+			getViews();
+		}
+	}
+
+	onMount(async ()=>{
+		comments = await fetch(json.ghMetadata.commentsUrl).then((res) => res.json());
+	})
+
+	
+
 </script>
 
 <svelte:head>
 	<title>{json.title}</title>
-	<meta name="description" content="blackkspydo blog" />
 	<link rel="canonical" href={canonical} />
 	<meta property="og:url" content={canonical} />
 	<meta property="og:type" content="article" />
@@ -46,6 +94,9 @@
 	>
 		<p class="flex items-center text-sm text-gray-700 dark:text-gray-300">Blackkspydo</p>
 		<p class="min-w-32 flex items-center text-sm text-gray-600 dark:text-gray-400 md:mt-0">
+			<span class="mr-4 font-mono text-xs text-gray-700 text-opacity-70 dark:text-gray-300"
+				>{views} views</span
+			>
 			<a href={json.ghMetadata.issueUrl} rel="external" class="no-underline" target="_blank">
 				<span class="mr-4 font-mono text-xs text-gray-700 text-opacity-70 dark:text-gray-300"
 					>{json.ghMetadata.reactions.total_count} reactions</span
@@ -63,19 +114,24 @@
 	</div>
 </article>
 <div class="mx-auto max-w-4xl">
-	<div class="prose mb-12 border-t border-b border-blue-800 p-4 dark:prose-invert">
+	<div
+		class="prose mb-12 flex justify-between border-t border-b border-blue-800 p-4 dark:prose-invert"
+	>
 		{#if json.ghMetadata.reactions.total_count > 0}
-			Reactions: <Reactions
-				issueUrl={json.ghMetadata.issueUrl}
-				reactions={json.ghMetadata.reactions}
-			/>
-		{:else}
+			<div>
+				Reactions: <Reactions
+					issueUrl={json.ghMetadata.issueUrl}
+					reactions={json.ghMetadata.reactions}
+				/>
+			</div>
+		{/if}
+		<div>
 			<a href={json.ghMetadata.issueUrl}>Leave a reaction </a>
 			if you liked this post! 🧡
-		{/if}
+		</div>
 	</div>
 	<div class="mb-8">
-		<Comments ghMetadata={json.ghMetadata} />
+		<Comments ghMetadata={json.ghMetadata} {comments} />
 	</div>
 
 	<Newsletter />

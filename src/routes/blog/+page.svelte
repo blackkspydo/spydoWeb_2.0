@@ -77,9 +77,9 @@
 	<p class="mb-4 text-lg text-gray-600 dark:text-gray-400">
 		Hello there, I'm <a href="/"><strong>Kishor U</strong></a>. I'm a software engineer
 		<a href="https://grambell.com">@Grambell </a>
-		and an computer software undergrad. I write about software development, tech, and other things that interest
-		me. In total, I've written {items.length} articles on my blog. Use the search below to filter by
-		title.
+		and an computer software undergrad. I write about software development, tech, and other things that
+		interest me. In total, I've written {items.length} articles on my blog. Use the search below to filter
+		by title.
 	</p>
 	<div class="relative mb-4 w-full">
 		<input
@@ -105,7 +105,7 @@
 	</div>
 	<div class="mb-12 mt-2 flex items-center ">
 		<div class="mr-2 text-gray-900 dark:text-gray-400">Filter:</div>
-		<div class="sm:grid-cols-6 grid grid-cols-3 rounded-md shadow-sm">
+		<div class="sm:grid-cols-6 grid grid-cols-5 rounded-md shadow-sm">
 			{#each POST_CATEGORIES as availableCategory}
 				<div>
 					<input
@@ -117,7 +117,7 @@
 					/>
 					<label
 						for="category-{availableCategory}"
-						class="inline-flex w-full cursor-pointer items-center justify-between border border-gray-200 bg-white px-4 py-2 text-gray-500 hover:bg-gray-100 hover:text-gray-600 peer-checked:border-purple-600 peer-checked:text-purple-600 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300 dark:peer-checked:text-purple-500"
+						class="flex w-full cursor-pointer items-center justify-center border border-gray-200 bg-white px-4 py-2 text-gray-500 hover:bg-gray-100 hover:text-gray-600 peer-checked:border-purple-600 peer-checked:text-purple-600 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300 dark:peer-checked:text-purple-500"
 					>
 						{availableCategory}
 					</label>
@@ -140,6 +140,7 @@
 						title={item.title}
 						stringData={new Date(item.date).toISOString().slice(0, 10)}
 						ghMetadata={item.ghMetadata}
+						views={item.views}
 						{item}
 					>
 						{item.description}

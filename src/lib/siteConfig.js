@@ -3,11 +3,10 @@ export const APPROVED_POSTERS_GH_USERNAME = ['blackkspydo'];
 export const GH_USER_REPO = 'blackkspydo/spydoWeb_2.0'; // used for pulling github issues and offering comments
 export const SITE_TITLE = 'Blackkspydo';
 export const SITE_DESCRIPTION = "Blackkspydo's personal website";
-export const DEFAULT_OG_IMAGE =
-	'https://user-images.githubusercontent.com/6764957/147861359-3ad9438f-41d1-47c8-aa05-95c7d18497f0.png';
+export const DEFAULT_OG_IMAGE = 'https://blackkspydo.com/preview.jpg';
 export const MY_TWITTER_HANDLE = '_blackkspydo';
 export const MY_YOUTUBE = 'https://youtube.com/blackkspydo';
-export const POST_CATEGORIES = ['Blog','Tutorials']; // Other categories you can consider adding: Talks, Tutorials, Snippets, Podcasts, Notes...
+export const POST_CATEGORIES = ['Blog', 'Tutorials', '100s', 'Snippets']; // Other categories you can consider adding: Talks, Tutorials, Snippets, Podcasts, Notes...
 export const GH_PUBLISHED_TAGS = ['Published'];
 
 // auto generated variables

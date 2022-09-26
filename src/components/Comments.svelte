@@ -1,19 +1,12 @@
 <script>
 	/** @type {import('$lib/types').GHMetadata} */
 	export let ghMetadata;
-	let data = [];
-	import { onMount } from 'svelte';
-	onMount(async () => {
-		data = await (
-			await fetch(ghMetadata.commentsUrl)
-		).json();
-	});
+	export let comments;
 	import Comment from './Comment.svelte';
-
 </script>
 
 <div class="prose mb-8 w-full dark:prose-invert">
-	{#each data as comment}
+	{#each comments as comment}
 		<Comment {comment} />
 	{/each}
 </div>
