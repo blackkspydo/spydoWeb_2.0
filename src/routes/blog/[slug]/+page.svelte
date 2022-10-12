@@ -6,7 +6,7 @@
 	import Reactions from '../../../components/Reactions.svelte';
 	import { views_register, db } from '../../../Firebase';
 	import { doc, getDoc, getDocs, setDoc, query, where } from 'firebase/firestore';
-	import { page } from '$app/stores'
+	import { page } from '$app/stores';
 	import { onMount } from 'svelte';
 
 	/** @type {import('./$types').PageData} */
@@ -57,12 +57,9 @@
 		}
 	}
 
-	onMount(async ()=>{
+	onMount(async () => {
 		comments = await fetch(json.ghMetadata.commentsUrl).then((res) => res.json());
-	})
-
-	
-
+	});
 </script>
 
 <svelte:head>
@@ -109,11 +106,14 @@
 		class=" sm:mx-0 sm:w-full my-2 flex h-1 w-[100%] bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500"
 	/>
 
-	<div class="prose mt-16 mb-32 w-full max-w-full text-lg dark:prose-invert">
+	<div class="prose mt-16 mb-16 w-full max-w-full text-lg dark:prose-invert">
 		{@html json.content}
 	</div>
 </article>
 <div class="mx-auto max-w-4xl">
+	<div class="mb-3">
+		<a href="/blog">Read more articles {'>'}</a>
+	</div>
 	<div
 		class="prose mb-12 flex justify-between border-t border-b border-blue-800 p-4 dark:prose-invert"
 	>
