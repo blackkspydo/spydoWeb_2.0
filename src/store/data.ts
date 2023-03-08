@@ -107,11 +107,11 @@ export const skills: data[] = [
 	},
 	{
 		name: 'Typescript',
-		value: 'Intermediate'
+		value: 'Expert'
 	},
 	{
 		name: 'ReactJs',
-		value: 'Intermediate'
+		value: 'Expert'
 	},
 	{
 		name: 'NodeJs',
@@ -119,27 +119,23 @@ export const skills: data[] = [
 	},
 	{
 		name: 'Svelte',
-		value: 'Intermediate'
+		value: 'Expert'
 	},
 	{
 		name: 'GatsbyJs',
-		value: 'Intermediate'
+		value: 'Expert'
 	},
 	{
 		name: 'NextJs',
-		value: 'Intermediate'
+		value: 'Expert'
 	},
 	{
 		name: 'git',
-		value: 'Intermediate'
+		value: 'Expert'
 	},
 	{
 		name: 'Figma',
 		value: 'Intermediate'
-	},
-	{
-		name: 'Python',
-		value: 'Beginner'
 	},
 	{
 		name: 'Life',
