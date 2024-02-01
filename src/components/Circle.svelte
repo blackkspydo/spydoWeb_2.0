@@ -60,7 +60,7 @@
 
 <div class="circle">
 	<div class="introImage">
-		<img src="/me-yellow-2.png" alt="profile" />
+		<img src="/me-yellow.png" alt="profile" />
 	</div>
 	<div class="ringCircle inner-planets border-black/[.5] border-[1px] border-opacity-50 dark:border-white/[.5] ">
 		{#each inner as planet}
