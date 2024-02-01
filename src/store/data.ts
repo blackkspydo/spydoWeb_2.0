@@ -122,7 +122,7 @@ export const skills: data[] = [
 		value: 'Expert'
 	},
 	{
-		name: 'GatsbyJs',
+		name: 'Serverless',
 		value: 'Expert'
 	},
 	{
@@ -135,7 +135,7 @@ export const skills: data[] = [
 	},
 	{
 		name: 'Figma',
-		value: 'Intermediate'
+		value: 'Expert'
 	},
 	{
 		name: 'Life',
@@ -145,20 +145,20 @@ export const skills: data[] = [
 
 export const projects: data[] = [
 	{
+		name: '89transfers',
+		url: 'https://v3-2023.pages.dev/',
+		value: 'A booking platform for airport transfers.'
+	},
+	{
+		name: 'Bikram Sambat',
+		url: 'https://github.com/askbuddie/bikram-sambat',
+		value: 'A js library to work with Bikram Sambat date system.'
+	},
+	{
 		name: 'Tinify.pro',
-		url: 'https://tinify.pro/',
+		url: 'https://tinify-pro.vercel.app/',
 		value:
 			'Tinify.pro is a free online image compression service. It compresses images and gifs, and allows you to download them as a zip file.'
-	},
-	{
-		name: 'IKM Portfolio',
-		url: 'https://ikmaharaj.netlify.app',
-		value: 'This is portfolio website for a client. It is a static website built with GatsbyJs.'
-	},
-	{
-		name: 'KE School Website',
-		url: 'https://keschool.edu.np',
-		value: 'website for a school. It is a static website built with Wordpress custom theme.'
 	},
 	{
 		name: 'Mja Marketing ',
@@ -170,7 +170,12 @@ export const projects: data[] = [
 
 export const experience: data[] = [
 	{
-		name: '2022 Apr - Present',
+		name: '2023 Aug - Present',
+		value: 'Founder | CEO @SpydoGenesisInc',
+		url: 'https://www.spydogenesis.com/'
+	},
+	{
+		name: '2022 Apr - 2023 Apr',
 		value: 'FrontEnd Er. @Grambell',
 		url: 'https://www.grambell.com/'
 	},
