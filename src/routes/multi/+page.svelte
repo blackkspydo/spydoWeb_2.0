@@ -5,7 +5,7 @@ lang="ts"
     import { goto } from "$app/navigation";
 
 onMount(()=>{
-    goto("/daa.zip")
+    goto("/multi.pdf")
 })
 
 </script>
